@@ -1,1 +1,1 @@
-some R script
+just some R script
