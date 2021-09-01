@@ -10,7 +10,14 @@ install.packages('R.utils')
 install.packages("rio")
 install.packages("outliers")
 install.packages("writexl")
-install.packages("phangorn")
+install.packages("slider")
+install.packages("Hmisc")
+install.packages("car")
+
+
+## visualize
+install.packages("ggprism")
+install.packages("ggrepel")
 
 
 ## classic quantitive genetics 
@@ -30,6 +37,7 @@ install.packages("lme4")
 
 ## phylogenetics
 install.packages("phytools")
+install.packages("phangorn")
 BiocManager::install("ggtree")
 BiocManager::install("ggtreeExtra")
 
