@@ -13,12 +13,11 @@
 #' ibs <- read.table("https://github.com/Wangchangsh/extraMaterials/raw/master/Rice_533_ibs distance/533.mibs")
 #' id <- read.table("https://github.com/Wangchangsh/extraMaterials/raw/master/Rice_533_ibs distance/533.mibs.id")
 #' group <- read.csv("https://github.com/Wangchangsh/extraMaterials/raw/master/Rice_533_ibs distance/subgroup.csv", header = T)
-#' labs name must be labs
-#' labs <- c("WYJ3", "ZS97", "xs134", "MH63", "Mitak", "9311", "Aus", "C146")  
-#' tree1 <- phyloplot(data = ibs, ID = id, labs = labs, Group = NULL)
-#' tree2 <- phyloplot(data = ibs, ID = id, labs = labs, Group = group)
+#' lab <- c("WYJ3", "ZS97", "xs134", "MH63", "Mitak", "9311", "Aus", "C146")  
+#' tree1 <- phyloplot(data = ibs, ID = id, labs = lab, Group = NULL)
+#' tree2 <- phyloplot(data = ibs, ID = id, labs = lab, Group = group)
 
-phyloplot <- function(data = ibs, ID = id, labs = labs, Group = NULL) {
+phyloplot <- function(data = ibs, ID = id, labs = lab, Group = NULL) {
   
   suppressPackageStartupMessages(library(phangorn))
   suppressPackageStartupMessages(library(ggtree))
@@ -31,7 +30,7 @@ phyloplot <- function(data = ibs, ID = id, labs = labs, Group = NULL) {
     dis <- 1 - as.dist(data)
     tree_nj <- NJ(dis)
     tree <- ggtree(tree_nj, layout = "radial", branch.length = "none") + 
-      geom_tiplab(aes(label = label, subset = c(label %in% labs)), size = 6, show.legend = F)
+      geom_tiplab(aes(label = label, subset = c(label %in% {{labs}})), size = 6, show.legend = F)
     
     print(tree)
   } else {
@@ -47,7 +46,7 @@ phyloplot <- function(data = ibs, ID = id, labs = labs, Group = NULL) {
     dis <- 1 - as.dist(data)
     tree_nj <- NJ(dis)
     tree <- ggtree(tree_nj, layout = "radial", branch.length = "none") + 
-      geom_tiplab(aes(label = label, subset = c(label %in% labs)), size = 6, show.legend = F)
+      geom_tiplab(aes(label = label, subset = c(label %in% {{labs}})), size = 6, show.legend = F)
     tree_group <- groupOTU(tree, grplst, 'subgroup') +
       aes(color = subgroup) +
       theme(legend.position = "right") +
