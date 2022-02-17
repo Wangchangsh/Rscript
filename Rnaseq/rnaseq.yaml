@@ -1,0 +1,17 @@
+fastp_trim:
+  cpu: 4
+hisat2_map:
+  cpu: 8
+sam2bam:
+  cpu: 8
+counts:
+  cpu: 4
+
+SAMPLENAME:
+  - FC73
+  - FC74
+
+Rep:
+ - 1
+ - 2
+ - 3
