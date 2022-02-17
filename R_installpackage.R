@@ -6,19 +6,33 @@ install.packages("CMplot")
 install.packages("ggbreak")
 install.packages("uniqtag")
 install.packages("formatR")
-install.packages('R.utils')
+install.packages("R.utils")
 install.packages("rio")
 install.packages("outliers")
 install.packages("writexl")
 install.packages("slider")
 install.packages("Hmisc")
 install.packages("car")
+install.packages("pryr")
+install.packages("uniqtag")
+install.packages("agridat")
+install.packages("eoffice") 
+install.packages("optparse")
+install.packages("ggtext")
+install.packages("janitor")
+
+## dependencies for mpmap2
+install.packages("fastcluster")
+install.packages("nnls")
+BiocManager::install("Heatplus")
+
 
 
 ## visualize
 install.packages("ggprism")
 install.packages("ggrepel")
-
+install.packages("ggbreak")
+install.packages("ggforce")
 
 ## classic quantitive genetics 
 install.packages("ASmap")
@@ -60,3 +74,4 @@ BiocManager::install("clusterProfiler")
 
 # github
 devtools::install_github("xiaolei-lab/rMVP")
+devtools::install_github("norment/normentR")
