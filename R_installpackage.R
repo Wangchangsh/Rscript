@@ -20,12 +20,10 @@ install.packages("eoffice")
 install.packages("optparse")
 install.packages("ggtext")
 install.packages("janitor")
-
-## dependencies for mpmap2
-install.packages("fastcluster")
-install.packages("nnls")
-BiocManager::install("Heatplus")
-
+install.packages("tidyfst")
+install.packages("microbenchmark")
+install.packages("bench")
+install.packages("devtools")
 
 
 ## visualize
@@ -38,27 +36,12 @@ install.packages("ggforce")
 install.packages("ASmap")
 install.packages("SEA")
 install.packages("NAM")
-
-
+install.packages("qtl2")
 
 
 ## statistics
 install.packages("e1071")
 install.packages("lme4")
-
-
-
-
-## phylogenetics
-install.packages("phytools")
-install.packages("phangorn")
-BiocManager::install("ggtree")
-BiocManager::install("ggtreeExtra")
-
-
-
-
-
 
 # Bioconductor
 if (!requireNamespace("BiocManager", quietly = TRUE))
@@ -70,6 +53,17 @@ BiocManager::install("limma")
 BiocManager::install("DESeq2")
 BiocManager::install("edgeR")
 BiocManager::install("clusterProfiler")
+
+## dependencies for mpmap2
+install.packages("fastcluster")
+install.packages("nnls")
+BiocManager::install("Heatplus")
+
+## phylogenetics
+install.packages("phytools")
+install.packages("phangorn")
+BiocManager::install("ggtree")
+BiocManager::install("ggtreeExtra")
 
 
 # github
