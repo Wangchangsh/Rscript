@@ -33,10 +33,11 @@ install.packages("ggbreak")
 install.packages("ggforce")
 
 ## classic quantitive genetics 
-install.packages("ASmap")
+install.packages("ASMap")
 install.packages("SEA")
 install.packages("NAM")
 install.packages("qtl2")
+install.packages("qtl")
 
 
 ## statistics
