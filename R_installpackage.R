@@ -33,11 +33,12 @@ install.packages("ggbreak")
 install.packages("ggforce")
 
 ## classic quantitive genetics 
-install.packages("ASMap")
+install.packages("ASmap")
 install.packages("SEA")
 install.packages("NAM")
 install.packages("qtl2")
-install.packages("qtl")
+install.packages("polyqtlR")
+install.packages("polymapR")
 
 
 ## statistics
@@ -70,3 +71,5 @@ BiocManager::install("ggtreeExtra")
 # github
 devtools::install_github("xiaolei-lab/rMVP")
 devtools::install_github("norment/normentR")
+
+
