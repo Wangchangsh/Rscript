@@ -55,6 +55,9 @@ BiocManager::install("limma")
 BiocManager::install("DESeq2")
 BiocManager::install("edgeR")
 BiocManager::install("clusterProfiler")
+BiocManager::install("gdsfmt")
+BiocManager::install("SNPRelate")
+
 
 ## dependencies for mpmap2
 install.packages("fastcluster")
