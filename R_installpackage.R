@@ -39,6 +39,8 @@ install.packages("NAM")
 install.packages("qtl2")
 install.packages("polyqtlR")
 install.packages("polymapR")
+devtools::install_github("augusto-garcia/onemap")
+devtools::install_github("bschiffthaler/BatchMap")
 
 
 ## statistics
