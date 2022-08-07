@@ -24,6 +24,8 @@ install.packages("tidyfst")
 install.packages("microbenchmark")
 install.packages("bench")
 install.packages("devtools")
+install.packages("palmerpenguins")
+install.packages("quarto")
 
 
 ## visualize
