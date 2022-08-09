@@ -79,4 +79,6 @@ BiocManager::install("ggtreeExtra")
 devtools::install_github("xiaolei-lab/rMVP")
 devtools::install_github("norment/normentR")
 
+# blog
+install.packages("blogdown")
 
