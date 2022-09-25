@@ -26,6 +26,8 @@ install.packages("bench")
 install.packages("devtools")
 install.packages("palmerpenguins")
 install.packages("quarto")
+install.packages("MetaCycle")
+
 
 
 ## visualize
@@ -33,6 +35,8 @@ install.packages("ggprism")
 install.packages("ggrepel")
 install.packages("ggbreak")
 install.packages("ggforce")
+install.packages("ggh4x")
+install.packages("ggridges")
 
 ## classic quantitive genetics 
 install.packages("ASmap")
@@ -43,7 +47,7 @@ install.packages("polyqtlR")
 install.packages("polymapR")
 devtools::install_github("augusto-garcia/onemap")
 devtools::install_github("bschiffthaler/BatchMap")
-
+devtools::install_github("venyao/binQTL")
 
 ## statistics
 install.packages("e1071")
@@ -61,6 +65,7 @@ BiocManager::install("edgeR")
 BiocManager::install("clusterProfiler")
 BiocManager::install("gdsfmt")
 BiocManager::install("SNPRelate")
+BiocManager::install("methylSig")
 
 
 ## dependencies for mpmap2
