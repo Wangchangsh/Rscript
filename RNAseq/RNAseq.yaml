@@ -1,11 +1,13 @@
 fastp_trim:
-  cpu: 4
+  cpu: 2
 hisat2_map:
   cpu: 8
 sam2bam:
   cpu: 8
 counts:
-  cpu: 4
+  cpu: 8
+rawcounts:
+  cpu: 1
 
 SAMPLENAME:
   - FC73

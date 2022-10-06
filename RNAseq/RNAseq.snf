@@ -1,0 +1,76 @@
+shell.prefix("set -eo pipefail; echo BEGIN at $(date); ")
+shell.suffix("; exitstat=$?; echo END at $(date); echo exit status was $exitstat; exit $exitstat")
+
+configfile: "RNAseq.yaml"
+
+SAMPLESNAME = config['SAMPLENAME']
+Rep = config['Rep']
+SAMPLES = list(str(x) + '-' + str(y) for x in SAMPLESNAME for y in Rep)
+
+rule all:
+    input: 
+        expand("03.Bam/{sample}.sort.bam", sample = SAMPLES),
+        expand("04.Featurecounts/{samplename}.out", samplename = SAMPLESNAME),
+        expand("04.Featurecounts/{samplename}.rawcount", samplename = SAMPLESNAME)
+    
+rule fastp_trim:
+    input:
+        raw1 = "01.Raw_seq/{sample}_1.fq.gz",
+        raw2 = "01.Raw_seq/{sample}_2.fq.gz"
+    output:
+        paired1 = "02.Paired/{sample}_1.paired.fq.gz",
+        paired2 = "02.Paired/{sample}_2.paired.fq.gz",
+        json = "02.Paired/{sample}.json",
+        html = "02.Paired/{sample}.html"
+    threads:
+        config["fastp_trim"]["cpu"]
+    log:
+        "log/paired/{sample}.log"
+    shell:
+        "fastp -i {input.raw1} -o {output.paired1} -I {input.raw2} -O {output.paired2} -j {output.json} -h {output.html} -c -w {threads} > {log} 2>&1" 
+
+rule hisat2_map:
+    input:
+        paired1 = "02.Paired/{sample}_1.paired.fq.gz",
+        paired2 = "02.Paired/{sample}_2.paired.fq.gz"
+    output:
+        sam = "03.Bam/{sample}.sam"
+    params:
+        index = "00.Ref/hisat2/genome_tran"
+    threads:
+        config["hisat2_map"]["cpu"]
+    log:
+        "log/hisat2/{sample}.log"
+    shell:
+        "hisat2 -p {threads} -x {params.index} -1 {input.paired1} -2 {input.paired2} -S {output.sam} > {log} 2>&1"
+
+rule sam2bam:
+    input:
+        sam = "03.Bam/{sample}.sam"
+    output:
+        bam = "03.Bam/{sample}.sort.bam"
+    threads:
+        config["sam2bam"]["cpu"]
+    shell:
+        "samtools view -@ {threads} -bS -1 {input.sam}|samtools sort -@ {threads} -o {output.bam}"
+
+rule counts:
+    input:
+        gtf = "00.Ref/genome.gtf",
+        bam = expand("03.Bam/{{samplename}}-{rep}.sort.bam", rep = Rep)
+    output:
+        "04.Featurecounts/{samplename}.out"
+    threads:
+        config["counts"]["cpu"]
+    log:
+        "log/featureCounts/{samplename}.log"
+    shell:
+        "featureCounts -T {threads} -p -t exon -g gene_id -a {input.gtf} -o {output} {input.bam} > {log} 2>&1"
+
+rule rawcounts:
+    input:
+        out = "04.Featurecounts/{samplename}.out"
+    output:
+        rawcount = "04.Featurecounts/{samplename}.rawcount"
+    shell:
+        "cut -f 1,7,8,9 {input.out} |grep -v '#' |sed 's/bam\///g'|sed 's/.sort.bam//g' > {output.rawcount}"

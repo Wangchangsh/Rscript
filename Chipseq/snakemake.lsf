@@ -1,8 +1,0 @@
-#BSUB -J chipworkflow
-#BSUB -n 1
-#BSUB -R span[hosts=1]
-#BSUB -q normal
-#BSUB -e %J.err
-#BSUB -o %J.out
-
-snakemake -s snakefile -j 999 --cluster-config cluster_config.yaml --cluster 'bsub -n {cluster.cpu} -R span[hosts=1] -q normal'
