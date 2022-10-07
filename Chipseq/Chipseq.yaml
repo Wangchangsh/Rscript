@@ -1,0 +1,30 @@
+fastp_trim:
+  cpu: 2
+bowtie2_map:
+  cpu: 8
+sam2bam:
+  cpu: 8
+MarkDup:
+  cpu: 1
+bam_index:
+  cpu: 1
+bam2bw:
+  cpu: 1
+  binsize: 50
+  normalizemethod: CPM
+callpeak:
+  cpu: 1
+
+control: 'input'
+case: 'IP'
+filterThreshold: 30
+
+SAMPLE:
+  - FC73_input
+  - FC73_IP
+  - FC74_input
+  - FC74_IP
+  - FC75_input
+  - FC75_IP
+  - FC76_input
+  - FC76_IP
