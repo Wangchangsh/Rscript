@@ -83,6 +83,7 @@ BiocManager::install("ggtreeExtra")
 # github
 devtools::install_github("xiaolei-lab/rMVP")
 devtools::install_github("norment/normentR")
+devtools::install_github("guokai8/CandiHap")
 
 # blog
 install.packages("blogdown")
