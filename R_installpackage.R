@@ -76,6 +76,7 @@ BiocManager::install("Heatplus")
 ## phylogenetics
 install.packages("phytools")
 install.packages("phangorn")
+install.packages("geneHapR")
 BiocManager::install("ggtree")
 BiocManager::install("ggtreeExtra")
 
