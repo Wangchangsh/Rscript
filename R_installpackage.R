@@ -28,8 +28,6 @@ install.packages("palmerpenguins")
 install.packages("quarto")
 install.packages("MetaCycle")
 
-
-
 ## visualize
 install.packages("ggprism")
 install.packages("ggrepel")
@@ -37,6 +35,11 @@ install.packages("ggbreak")
 install.packages("ggforce")
 install.packages("ggh4x")
 install.packages("ggridges")
+install.packages("hrbrthemes")
+install.packages("circlize")
+install.packages("RIdeogram")
+devtools::install_github("mattflor/chorddiag")
+devtools::install_github("marta-fb/syntenyPlotteR")
 
 ## classic quantitive genetics 
 install.packages("ASmap")
