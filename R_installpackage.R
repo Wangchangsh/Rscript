@@ -27,6 +27,10 @@ install.packages("devtools")
 install.packages("palmerpenguins")
 install.packages("quarto")
 install.packages("MetaCycle")
+install.packages("splitstackshape")
+install.packages("jsonlite")
+install.packages("tidyjson")
+install.packages("multcompView")
 
 ## visualize
 install.packages("ggprism")
@@ -38,8 +42,11 @@ install.packages("ggridges")
 install.packages("hrbrthemes")
 install.packages("circlize")
 install.packages("RIdeogram")
+install.packages("gggenes")
+devtools::install_github("thackl/gggenomes")
 devtools::install_github("mattflor/chorddiag")
 devtools::install_github("marta-fb/syntenyPlotteR")
+devtools::install_github("dwinter/pafr")
 
 ## classic quantitive genetics 
 install.packages("ASmap")
