@@ -49,7 +49,7 @@ devtools::install_github("marta-fb/syntenyPlotteR")
 devtools::install_github("dwinter/pafr")
 
 ## classic quantitive genetics 
-install.packages("ASmap")
+install.packages("ASMap")
 install.packages("SEA")
 install.packages("NAM")
 install.packages("qtl2")
@@ -79,6 +79,7 @@ BiocManager::install("methylSig")
 
 
 ## dependencies for mpmap2
+install.packages("sn")
 install.packages("fastcluster")
 install.packages("nnls")
 BiocManager::install("Heatplus")
@@ -94,7 +95,6 @@ BiocManager::install("ggtreeExtra")
 # github
 devtools::install_github("xiaolei-lab/rMVP")
 devtools::install_github("norment/normentR")
-devtools::install_github("guokai8/CandiHap")
 
 # blog
 install.packages("blogdown")
