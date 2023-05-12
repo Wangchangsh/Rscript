@@ -31,6 +31,7 @@ install.packages("splitstackshape")
 install.packages("jsonlite")
 install.packages("tidyjson")
 install.packages("multcompView")
+install.packages("gap")
 
 ## visualize
 install.packages("ggprism")
